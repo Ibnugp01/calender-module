@@ -7,7 +7,7 @@
 Backstory: After using react-big-calendar for years, I decided to create my own that is simpler to use, allows for easy customization, and uses modern React (no deprecated methods).
 
 ```
-npm install @zach.codes/react-calendar date-fns
+npm install @ibnu890/calendar-module date-fns
 ```
 
 - [Basic Usage](#Basic-Usage)
@@ -28,7 +28,7 @@ import {
   MonthlyCalendar,
   MonthlyNav,
   DefaultMonthlyEventItem,
-} from '@zach.codes/react-calendar';
+} from '@ibnu890/calendar-module';
 
 export const MyMonthlyCalendar = () => {
   let [currentMonth, setCurrentMonth] = useState<Date>(
@@ -78,20 +78,20 @@ This library uses [Tailwind](https://tailwindcss.com/). This gives you two optio
 
 ### I'm already using Tailwind
 
-Awesome! You need to add `node_modules/@zach.codes/react-calendar/dist/**/*.js` to your `tailwind.config.js` to ensure the required classes aren't purged on your production build.
+Awesome! You need to add `node_modules/@ibnu890/calendar-module/dist/**/*.js` to your `tailwind.config.js` to ensure the required classes aren't purged on your production build.
 
 ### I'm not using Tailwind
 
 No problem! The library includes the minimal CSS required to render the components. Somewhere in your app, you need to import our CSS:
 
 ```js
-import '@zach.codes/react-calendar/dist/calendar-tailwind.css';
+import '@ibnu890/calendar-module/dist/calendar-tailwind.css';
 ```
 
 If you already have a CSS reset in your app, you can import from:
 
 ```js
-import '@zach.codes/react-calendar/dist/calendar-tailwind-no-reset.css';
+import '@ibnu890/calendar-module/dist/calendar-tailwind-no-reset.css';
 ```
 
 But some styles may not look the same as storybook. You can take the resets you want from the main file and put them into your app to get the styling you prefer.
@@ -181,7 +181,7 @@ This library has very few props to understand. It takes a component-first approa
 Building a calendar is highly opinionated. This library lets you easily customize any piece of it. Let's take a look at the `MonthlyNav` component:
 
 ```tsx
-import { useMonthlyCalendar } from '@zach.codes/react-calendar';
+import { useMonthlyCalendar } from '@ibnu890/calendar-module';
 
 export const MonthlyNav = () => {
   let { currentMonth, onCurrentMonthChange } = useMonthlyCalendar();
