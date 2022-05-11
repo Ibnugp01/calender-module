@@ -1,5 +1,5 @@
 {
-  "version": "0.3.0",
+  "version": "0.3.2",
   "license": "MIT",
   "name": "@ibnu890/calendar-module",
   "main": "dist/index.js",
@@ -42,16 +42,6 @@
   },
   "author": "Zach Silveira",
   "module": "dist/react-calendar.esm.js",
-  "size-limit": [
-    {
-      "path": "dist/react-calendar.cjs.production.min.js",
-      "limit": "10 KB"
-    },
-    {
-      "path": "dist/react-calendar.esm.js",
-      "limit": "10 KB"
-    }
-  ],
   "devDependencies": {
     "@babel/core": "^7.13.8",
     "@sinonjs/fake-timers": "^7.0.2",
