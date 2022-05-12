@@ -1,7 +1,6 @@
 import {
   startOfWeek,
   format,
-  isSameDay,
   getDay,
   setDay,
   isSameWeek,
@@ -126,7 +125,7 @@ type RenderItemProps<EventItem> = {
 
 type WeeklyBodyProps<EventItem> = {
   style?: CSSProperties;
-  events: (EventItem & { date: Date })[];
+  events: (EventItem & { date: Date, startDate: Date, endDate: Date })[];
   renderItem: (item: RenderItemProps<EventItem>) => ReactNode;
 };
 
@@ -142,7 +141,7 @@ export function WeeklyBody<EventItem>({
         {events.map(item => {
           // If they select a single day, filter out events for different days
           if (selectedDay) {
-            if (!isSameDay(selectedDay, item.date)) return null;
+            if (!(new Date(selectedDay) <= new Date(item.endDate) && new Date(item.startDate) <= new Date(selectedDay))) return null;
           }
           //if an event is for a different week, filter it out
           if (!isSameWeek(week, item.date)) return null;
