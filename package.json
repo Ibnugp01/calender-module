@@ -1,5 +1,5 @@
 {
-  "version": "0.3.5",
+  "version": "0.3.6",
   "license": "MIT",
   "name": "@ibnu890/react-calendar",
   "main": "dist/index.js",

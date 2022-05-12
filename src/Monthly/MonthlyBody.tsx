@@ -145,7 +145,7 @@ export function MonthlyDay<DayData>({ renderDay, renderClick }: MonthlyDayProps<
           {format(day, 'EEEE', { locale })}
         </div>
       </div>
-      <ul className="rc-divide-gray-200 rc-divide-y rc-overflow-hidden rc-max-h-36 md:max-h-24 rc-overflow-y-auto">
+      <ul className="rc-divide-gray-200 rc-divide-y rc-overflow-hidden rc-max-h-36 md:rc-max-h-24 rc-overflow-y-auto">
         {renderDay(events)}
       </ul>
     </div>
