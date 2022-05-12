@@ -49,10 +49,10 @@ export const handleOmittedDays = ({
 
 //to prevent these from being purged in production, we make a lookup object
 const headingClasses = {
-  l3: 'lg:rc-grid-cols-3',
-  l4: 'lg:rc-grid-cols-4',
-  l5: 'lg:rc-grid-cols-5',
-  l6: 'lg:rc-grid-cols-6',
+  l3: 'lg:rc-grid-cols-2',
+  l4: 'lg:rc-grid-cols-3',
+  l5: 'lg:rc-grid-cols-4',
+  l6: 'lg:rc-grid-cols-5',
   l7: 'lg:rc-grid-cols-7',
 };
 
@@ -79,11 +79,11 @@ export function MonthlyBody<DayData>({
   });
 
   let headingClassName =
-    'rc-border-b-2 rc-p-2 rc-border-r-2 lg:rc-block rc-hidden';
+    'rc-text-center rc-p-2 rc-border-r-2 lg:rc-block rc-hidden';
   return (
     <div className="rc-bg-white rc-border-l-2 rc-border-t-2 rc-rounded">
       <div
-        className={`rc-grid rc-grid-cols-1 sm:rc-grid-cols-2 md:rc-grid-cols-4 ${
+        className={`rc-grid rc-grid-cols-1 sm:rc-grid-cols-2 md:rc-grid-cols-4 rc-overflow-hidden rc-overflow-y-auto ${
           //@ts-ignore
           headingClasses[`l${headings.length}`]
         }`}
@@ -136,8 +136,8 @@ export function MonthlyDay<DayData>({ renderDay, renderClick }: MonthlyDayProps<
     >
       <div className="rc-flex rc-justify-between">
         <div className='rc-flex rc-flex-row rc-justify-between rc-w-full'>
-          <div className={`rc-font-bold rc-mb-2 ${isSameDay(day, new Date) ? "rc-bg-blue-500 rc-text-white rc-px-2 rc-rounded" : ""}`}>
-              {dayNumber}
+          <div className={`rc-font-normal rc-mb-2 rc-text-sm ${isSameDay(day, new Date) ? "rc-bg-blue-500 rc-text-white rc-px-2 rc-rounded" : ""}`}>
+              {parseInt(dayNumber) < 10 ? "0"+dayNumber : dayNumber}
           </div>
           {renderClick ? renderClick(day) : ''}
         </div>
