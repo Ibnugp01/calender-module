@@ -62,7 +62,7 @@ type MonthlyBodyProps<DayData> = {
     ex: [0,6] would remove sunday and saturday from rendering
   */
   omitDays?: number[];
-  events: (DayData & { date: Date, startDate: Date, endDate: Date })[];
+  events: (DayData & { date: Date, endDate: Date, startDate: Date })[];
   children: ReactNode;
 };
 
@@ -104,20 +104,17 @@ export function MonthlyBody<DayData>({
             aria-label="Empty Day"
           />
         ))}
-        {daysToRender.map(day => {
-            let start = events.filter((item) => new Date(day) <= new Date(item.endDate) && new Date(item.startDate) <= new Date(day))
-            return (
-              <MonthlyBodyContext.Provider
-                key={day.toISOString()}
-                value={{
-                  day,
-                  events: start,
-                }}
-              >
-                {children}
-              </MonthlyBodyContext.Provider>
-            )
-        })}
+        {daysToRender.map(day => (
+          <MonthlyBodyContext.Provider
+            key={day.toISOString()}
+            value={{
+              day,
+              events: events.filter((item) => new Date(day) <= new Date(item.endDate) && new Date(item.startDate) <= new Date(day)),
+            }}
+          >
+            {children}
+          </MonthlyBodyContext.Provider>
+        ))}
       </div>
     </div>
   );
